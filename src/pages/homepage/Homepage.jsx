@@ -23,13 +23,13 @@ const Homepage = () => {
 
 
         {/* row items  */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-8 w-3/4 mx-auto bg-white border-red-100 shadow-md rounded-lg border">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-8 w-3/4 mx-auto bg-white border-red-100 shadow-md rounded-lg border ">
       {[...Array(5)].map((_, index) => (
-        <div key={index} className="flex flex-col items-left p-4 hover:bg-gray-100 hover:cursor-pointer">
+        <div key={index} className="flex flex-col items-left p-4 hover:bg-gray-100 hover:cursor-pointer mt-6 mb-6 rounded-lg">
           <Search className="h-4 w-4 text-gray-700" />
           <h3 className="mt-4 text-lg font-semibold">Tạo CV</h3>
-          <p className="text-gray-600">Tạo CV ấn tượng với thao tác dễ dàng</p>
-          <a href="#" className="mt-3 flex items-center text-primaryRed underline hover:cursor-pointer">
+          <p className="text-gray-500 text-sm">Tạo CV ấn tượng với thao tác dễ dàng</p>
+          <a href="#" className="mt-3 flex items-center text-primaryRed text-sm font-bold underline hover:cursor-pointer">
             Tạo ngay <ArrowRight className="ml-1 h-4 w-4" />
           </a>
         </div>

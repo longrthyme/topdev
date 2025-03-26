@@ -251,7 +251,7 @@ export default function Header({ className }) {
 
                   <Link to="#" className="flex items-center gap-2 rounded-md p-2 hover:bg-muted">
                     <Building2 className="h-4 w-4" />
-                    <span>Công ty IT</span>
+                    <span className="hover:text-primaryRed">Công ty IT</span>
                   </Link>
 
                   {/* Công cụ header with collapsible */}

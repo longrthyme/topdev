@@ -9,6 +9,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import 'font-awesome/css/font-awesome.min.css';
 import Homepage from "./pages/homepage/Homepage";
+import JobPage from "./pages/job/JobPage";
 function App() {
   return (
     <Router>
@@ -19,7 +20,9 @@ function App() {
         <Route path="/verify-code" element={<VerifyForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/" element={<Homepage />} />
-        <Route path="/companies" element={<CompanyPage />} />
+        <Route path="/nha-tuyen-dung" element={<CompanyPage />} />
+        <Route path="/viec-lam-it" element={<JobPage />} />
+        {/* <Route path="/nha-tuyen-dung" element={<CompanyPage />} /> */}
       </Routes>
       <ToastContainer />
     </Router>
