@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Pagination, Card, Row, Col, Typography } from "antd";
+import { Pagination, Row, Col, Typography } from "antd";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import companyAPI from "../../api/company";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,8 @@ import styles from "./Companypage.module.css";
 import { Button } from "@/components/ui/button";
 import { FilterIcon, FilterXIcon, Search, XCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
-
+import { Card, CardContent } from "@/components/ui/card";
+// import { cn } from "@/lib/utils";
 const { Title, Paragraph } = Typography;
 
 const CompanyPage = () => {
@@ -131,21 +132,34 @@ const CompanyPage = () => {
           </div>
         </div>
 
-        <Row gutter={[16, 16]} className={styles.companyList}>
-          {companies.map((company) => (
-            <Col key={company.id} xs={24} sm={12} md={8}>
-              <Card hoverable onClick={() => handleCompanyClick(company.id)} className={styles.companyCard}>
-                <div className={styles.cardContent}>
-                  <img alt={company.name} src={company.avatar} className={styles.companyImage} />
-                  <div className={styles.cardText}>
-                    <h3 className={styles.companyName}>{company.name}</h3>
-                    <p className={styles.companyDescription}>{company.description}</p>
-                  </div>
-                </div>
-              </Card>
-            </Col>
-          ))}
-        </Row>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      {companies.map((company) => (
+        <Card
+          key={company.id}
+          className="hover:shadow-lg cursor-pointer"
+          onClick={() => handleCompanyClick(company.id)}
+        >
+          <CardContent className="p-4 flex flex-col items-center">
+            <img
+              src={company.avatar}
+              alt={company.name}
+              className="w-24 h-24 object-cover rounded-full mb-3"
+            />
+            <h3 className="text-lg font-semibold text-black text-left">
+              {company.name}
+            </h3>
+            <p className="text-sm text-black text-left mt-1">
+            {company.description.split(" ").slice(0, 10).join(" ")}...            </p>
+            <p className="text-sm text-gray-500 text-left mt-2">
+              {company.address}
+            </p>
+            <p className="text-sm text-gray-500 text-left mt-1">
+              {company.industry}
+            </p>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
 
         <div className={styles.pagination}>
           <Pagination current={page} total={totalElements} pageSize={size} onChange={(page) => setPage(page)} showSizeChanger={false} showQuickJumper />
